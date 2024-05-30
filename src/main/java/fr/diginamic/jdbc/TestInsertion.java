@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import fr.diginamic.jdbc.entite.Fournisseur;
+
 
 public class TestInsertion {
 //
@@ -15,9 +17,11 @@ static String url,user,pwd;
 static Connection myConnexion;
 static Statement stat;
 static ResultSet resultat;
+
 //
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Fournisseur four;
 		ResourceBundle config = ResourceBundle.getBundle("config");//fichier .properties
 		//String driver = config.getString("database.driver");
 		url = config.getString("database.url");
@@ -38,9 +42,12 @@ static ResultSet resultat;
 		//
 		try {
 			//inserer un fournisseur
+			four = new Fournisseur(6,"France de matériaux");
+			int id_fournisseur = four.getId_fournisseur();
+			String nom = four.getNom();
 			myConnexion = DriverManager.getConnection(url, user, pwd);//!!portee de la var
 			stat =  myConnexion.createStatement();
-			int nbLignesModif = stat.executeUpdate("INSERT INTO FOURNISSEUR (id_fournisseur,nom) values (6,'Maison de la peinture')");
+			int nbLignesModif = stat.executeUpdate("INSERT INTO FOURNISSEUR (id_fournisseur,nom) values (6,'La maison de la peinture')");
 			
 			ArrayList<String> listeFournisseur = new ArrayList<>();
 			resultat = stat.executeQuery("SELECT * FROM FOURNISSEUR");
