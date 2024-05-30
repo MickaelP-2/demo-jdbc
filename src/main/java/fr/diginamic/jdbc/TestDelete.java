@@ -40,7 +40,7 @@ public class TestDelete {
 			stat =  myConnexion.createStatement();
 			int nbLignesModif = stat.executeUpdate("DELETE FROM FOURNISSEUR WHERE NOM ='Maison des peintures'");
 			ArrayList<String> listeFournisseur = new ArrayList<>();
-			ResultSet resultat = stat.executeQuery("SELECT * FROM FOURNISSEUR");
+			resultat = stat.executeQuery("SELECT * FROM FOURNISSEUR");
 			while(resultat.next()) {
 				String sf = new String(resultat.getInt("id_fournisseur")+" "+resultat.getString("nom"));
 				listeFournisseur.add(sf);
@@ -53,7 +53,7 @@ public class TestDelete {
 			System.err.println(e.toString());
 			System.exit(-1);
 		}
-		/*
+		
 		finally{
 			try {
 				resultat.close();
@@ -66,7 +66,7 @@ public class TestDelete {
 				
 			}//fermeture de resultat
 		}//fin finally()
-		*/
+		
 	}
 
 }

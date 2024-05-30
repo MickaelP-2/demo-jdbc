@@ -43,7 +43,7 @@ static ResultSet resultat;
 			int nbLignesModif = stat.executeUpdate("INSERT INTO FOURNISSEUR (id_fournisseur,nom) values (6,'Maison de la peinture')");
 			
 			ArrayList<String> listeFournisseur = new ArrayList<>();
-			ResultSet resultat = stat.executeQuery("SELECT * FROM FOURNISSEUR");
+			resultat = stat.executeQuery("SELECT * FROM FOURNISSEUR");
 			while(resultat.next()) {
 				String sf = new String(resultat.getInt("id_fournisseur")+" "+resultat.getString("nom"));
 				listeFournisseur.add(sf);
@@ -55,7 +55,7 @@ static ResultSet resultat;
 			System.err.println(e.toString());
 			System.exit(-1);
 		}
-		/*
+		
 		finally{
 			try {
 				resultat.close();
@@ -69,7 +69,7 @@ static ResultSet resultat;
 			}//fermeture de resultat
 			
 		}//fin finally()
-		*/
+		
 		
 	}//fin main
 

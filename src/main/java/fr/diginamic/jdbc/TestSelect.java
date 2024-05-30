@@ -39,7 +39,7 @@ public class TestSelect {
 			myConnexion = DriverManager.getConnection(url, user, pwd);//!!portee de la var
 			stat =  myConnexion.createStatement();
 			ArrayList<String> listeFournisseur = new ArrayList<>();
-			ResultSet resultat = stat.executeQuery("SELECT * FROM FOURNISSEUR");
+			resultat = stat.executeQuery("SELECT * FROM FOURNISSEUR");
 			while(resultat.next()) {
 				String sf = new String(resultat.getInt("id_fournisseur")+" "+resultat.getString("nom"));
 				listeFournisseur.add(sf);
@@ -52,7 +52,7 @@ public class TestSelect {
 			System.err.println(e.toString());
 			System.exit(-1);
 		}
-		/*
+		
 		finally{
 			try {
 				resultat.close();
@@ -65,7 +65,7 @@ public class TestSelect {
 				
 			}//fermeture de resultat
 		}//fin finally()
-		*/
+		
 	}
 
 }
